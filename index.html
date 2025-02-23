@@ -6,7 +6,7 @@
         <!-- content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos."> -->
   <!-- <meta name="keywords" content="Nerfies, D-NeRF, NeRF"> -->
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-  <title>Topo4D: Topology-Preserving Gaussian Splatting for High-Fidelity 4D Head Capture</title>
+  <title>Towards High-fidelity 3D Talking Avatar with Personalized Dynamic Texture</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -47,27 +47,30 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Topo4D: Topology-Preserving Gaussian Splatting for High-Fidelity 4D Head Capture</h1>
+          <h1 class="title is-1 publication-title">Towards High-fidelity 3D Talking Avatar with Personalized Dynamic Texture</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
                 Xuanchen Li<sup>1</sup>,
+            </span>
+            <span class="author-block">
+                Jianyu Wang<sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://cyh-sj.github.io/">
                 Yuhao Cheng</a><sup>1</sup>,
             </span>
             <span class="author-block">
+                Yikun Zeng<sup>1</sup>,
+            </span>
+            <span class="author-block">
               <a href="https://xingyuren.github.io/">
                 Xingyu Ren</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              Haozhe Jia<sup>2</sup>,
+              Wenhan Zhu<sup>2</sup>,
             </span>
             <span class="author-block">
-              Di Xu<sup>2</sup>,
-            </span>
-            <span class="author-block">
-              Wenhan Zhu<sup>3</sup>,
+              Weiming Zhao<sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://daodaofr.github.io/">
@@ -76,21 +79,19 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>MoE Key Lab of Artificial Intelligence, AI Institute, Shanghai Jiao Tong University</span>
+            <span class="author-block"><sup>1</sup>Shanghai Jiao Tong University</span>
           </div>
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>2</sup>Huawei Cloud Computing Technologies Co., Ltd</span>
-          </div>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>3</sup>Xueshen AI</span>
+            <a href="https://excitai.com/">
+            <span class="author-block"><sup>2</sup>Xueshen AI</span>
           </div>
           
           <div class="is-size-6">
             <span>(<sup>&dagger;</sup>Corresponding author)</span>
           </div>
-          <div class="is-size-5 has-text-weight-bold">
+<!--           <div class="is-size-5 has-text-weight-bold">
               ECCV 2024
-          </div>
+          </div> -->
 
 
 
@@ -99,7 +100,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2406.00440"
+                <a href="https://github.com/XuanchenLi/TexTalk"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -128,12 +129,12 @@
               </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/XuanchenLi/Topo4D"
+                <a href="https://github.com/XuanchenLi/TexTalk"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (Coming Soon)</span>
                   </a>
               </span>
               <!-- Dataset Link. -->
@@ -159,7 +160,7 @@
     <div class="hero-body">
       <img class="img-responsive" src="./static/images/teaser.jpg" alt="Teaser">
       <h2 class="subtitle has-text-justified">
-        <span class="Topo4D">Example results of our Topo4D, the proposed 4D head capture framework. Our method can produce temporal topological consistent head meshes with high-fidelity 8K textures from calibrated multi-view videos. Moreover, our method can be applied to digital character retargeting and relighting applications.
+        <span class="TexTalker">We present TexTalk4D, a high-precision 4D audio-mesh-texture-aligned dataset consisting of 100 minutes of scan-level meshes with detailed 8K textures. Based on the dataset, we present TexTalker to generate geometry and aligned dynamic textures from speech simultaneously, advancing towards highly personalized textured facial animation.
       </h2>
     </div>
   </div>
@@ -173,9 +174,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-           4D head capture aims to generate dynamic topological meshes and corresponding texture maps from videos, which is widely utilized in movies and games for its ability to simulate facial muscle movements and recover dynamic textures in pore-squeezing.
-The industry often adopts the method involving multi-view stereo and non-rigid alignment. However, this approach is prone to errors and heavily reliant on time-consuming manual processing by artists. To simplify this process, we propose Topo4D, a novel framework for automatic geometry and texture generation, which optimizes densely aligned 4D heads and 8K texture maps directly from calibrated multi-view time-series images. Specifically, we first represent the time-series faces as a set of dynamic 3D Gaussians with fixed topology in which the Gaussian centers are bound to the mesh vertices. Afterward, we perform alternative geometry and texture optimization frame-by-frame for high-quality geometry and texture learning while maintaining temporal topology stability.
-Finally, we can extract dynamic facial meshes in regular wiring arrangement and high-fidelity textures with pore-level details from the learned Gaussians. Extensive experiments show that our method achieves superior results than the current SOTA face reconstruction methods both in the quality of meshes and textures.
+           Significant progress has been made for speech-driven 3D face animation, but most works focus on learning the motion of mesh/geometry, ignoring the impact of dynamic texture. In this work, we reveal that dynamic texture plays a key role in rendering high-fidelity talking avatars, and introduce a high-resolution 4D dataset \textbf{TexTalk4D}, consisting of 100 minutes of audio-synced scan-level meshes with detailed 8K dynamic textures from 100 subjects. Based on the dataset, we explore the inherent correlation between motion and texture, and propose a diffusion-based framework \textbf{TexTalker} to simultaneously generate facial motions and dynamic textures from speech. Furthermore, we propose a novel pivot-based style injection strategy to capture the complicity of different texture and motion styles, which allows disentangled control. TexTalker, as the first method to generate audio-synced facial motion with dynamic texture, not only outperforms the prior arts in synthesising facial motions, but also produces realistic textures that are consistent with the underlying facial movements.
           </p>
         
         </div>
@@ -194,7 +193,7 @@ Finally, we can extract dynamic facial meshes in regular wiring arrangement and 
                  preload
                  playsinline
                  width="100%">
-            <source src="./static/videos/Topo4D_intro.mp4"
+            <source src="./static/videos/xxx.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -209,7 +208,7 @@ Finally, we can extract dynamic facial meshes in regular wiring arrangement and 
         <h2 class="title is-3">Pipeline</h2>
         <img class="img-responsive" src="./static/images/pipeline.png" alt="Pipeline">
         <div class="content has-text-justified">
-        <span class="Pipeline">Overall pipeline of our framework. (a) We initialize Gaussian attributes and establish topological correspondence with the startup mesh. (b) Take one frame as an example, geometry-related attributes in the Gaussian Mesh of the last frame are optimized by this frame under a set of topology-aware loss items. (c) We align the Gaussian surface with the rendering surface by Gaussian normal expansion to extract more precise meshes. (d) To learn pore-level detailed colors and generate ultra-high resolution texture, we build a dense mesh by densifying Gaussians in UV space.
+        <span class="Pipeline">The overview of TexTalker. (a) We train quantized autoencoders to unify the representation of geometry and texture with better efficiency. (b) Based on the learned low-dimensional animation primitives, we employ an LDM to jointly diffuse geometry and texture latent offsets ∆z from the style pivots p for long-term correlation learning. (c) By adding back the style pivots, the motion and wrinkle styles can be independently controlled. Finally, the personalized textured animation assets can be obtained by decoders.
         </div>
       </div>
     </div>
@@ -362,7 +361,7 @@ and corresponding 8K texture maps with pore-level details from calibrated multi-
     <!--/ Comparisons. -->
 
   </div>
-</section>
+</section> 
   
 
   
@@ -370,12 +369,12 @@ and corresponding 8K texture maps with pore-level details from calibrated multi-
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-@article{li2024topo4d,
+<!-- @article{li2024topo4d,
   title={Topo4D: Topology-Preserving Gaussian Splatting for High-Fidelity 4D Head Capture},
   author={Xuanchen, Li and Yuhao, Cheng and Xingyu, Ren and Haozhe, Jia and Di, Xu and Wenhan, Zhu and Yichao, Yan},
   journal={arXiv preprint arXiv:2406.00440},
   year={2024}
-}
+} -->
     </code></pre>
   </div>
 </section>
