@@ -205,7 +205,7 @@
                  preload
                  playsinline
                  width="100%">
-            <source src="./static/videos/main.mp4"
+            <source src="./static/videos/intro.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -228,7 +228,7 @@
   </div>
 </section>
 
-<!--
+
 <section class="section">
   <div class="container is-max-desktop">
 
@@ -236,13 +236,7 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Results</h2>
         
-        <h3 class="title is-4">Reconstruction Results</h3>
-        <div class="content has-text-justified">
-          <p>
-            <span class="dnerf">Topo4D</span> can generate dynamic temporal-consistent meshes
-and corresponding 8K texture maps with pore-level details from calibrated multi-view videos. 
-          </p>
-        </div>
+        <h3 class="title is-4">Motion Comparison</h3>
         <div class="content has-text-centered">
           <video id="replay-video"
                  controls
@@ -250,62 +244,17 @@ and corresponding 8K texture maps with pore-level details from calibrated multi-
                  preload
                  playsinline
                  width="100%">
-            <source src="./static/videos/talk.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="content has-text-justified">
-          <p>
-            <span class="dnerf">Topo4D</span> can capture subtle facial changes and various extreme expressions, representing muscle tremors and dynamic wrinkles.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="100%">
-            <source src="./static/videos/exp1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="100%">
-            <source src="./static/videos/exp2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Comparisons</h2>
-        <h3 class="title is-4">Geometry Comparison</h3>
-
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="100%">
-            <source src="./static/videos/cmp_mesh.mp4"
+            <source src="./static/videos/motion_cmp.mp4"
                     type="video/mp4">
           </video>
         </div>
 
         <h3 class="title is-4">Texture Comparison</h3>
-
+        <div class="content has-text-justified">
+          <p>
+            <span class="TexTalker">TexTalker</span> can generate textures with a larger dynamic range while maintaining high consistency with the underlying facial movements.
+          </p>
+        </div>
         <div class="content has-text-centered">
           <video id="replay-video"
                  controls
@@ -313,14 +262,17 @@ and corresponding 8K texture maps with pore-level details from calibrated multi-
                  preload
                  playsinline
                  width="100%">
-            <source src="./static/videos/cmp_tex.mp4"
+            <source src="./static/videos/tex_cmp.mp4"
                     type="video/mp4">
           </video>
         </div>
 
-        <h3 class="title is-4">Comparison on <a href="https://github.com/facebookresearch/multiface">
-                Multiface</a></h3>
-
+        <h3 class="title is-4">Disentangled Style Control</h3>
+        <div class="content has-text-justified">
+          <p>
+            The speaking and wrinkling styles can be independently switched. 
+          </p>
+        </div>
         <div class="content has-text-centered">
           <video id="replay-video"
                  controls
@@ -328,30 +280,39 @@ and corresponding 8K texture maps with pore-level details from calibrated multi-
                  preload
                  playsinline
                  width="100%">
-            <source src="./static/videos/cmp_multiface_1.mp4"
+            <source src="./static/videos/style.mp4"
                     type="video/mp4">
           </video>
         </div>
 
-         <div class="content has-text-centered">
+        <h3 class="title is-4">Generalization to Other Languages</h3>
+        <div class="content has-text-justified">
+          <p>
+            Trained on Chinese data, <span class="TexTalker">TexTalker</span> can generalize to unseen languages well. 
+          </p>
+        </div>
+        <div class="content has-text-centered">
           <video id="replay-video"
                  controls
                  muted
                  preload
                  playsinline
                  width="100%">
-            <source src="./static/videos/cmp_multiface_2.mp4"
+            <source src="./static/videos/language.mp4"
                     type="video/mp4">
           </video>
         </div>
+
 
       </div>
     </div>
 
+    
+
 
   </div>
 </section> 
--->
+
 
   
 <section class="section" id="BibTeX">
