@@ -13,10 +13,12 @@ Significant progress has been made for speech-driven 3D face animation, but most
 
 ## TexTalk4D Dataset
 Baidu Netdisk [Download](https://pan.baidu.com/s/1KebDvmbZpEe3CNMmlXgItQ) Extraction Code: fivu
+
 - TexTalkData.zip: Containing 72 seen IDs. The latter half of the speech from ID063 to ID072 is not included in the training set and is used for calculating quantitative metrics, i.e., TexTalk4D-Test-A in the paper.
 - TexTalkTest.zip: Containing 18 unseen IDs used for qualitative evaluation.
 - TexTalkDataV2.zip: Containing 8 unused IDs, exhibiting significant forehead wrinkles. The original dataset lacks forehead wrinkles, so we additionally add 8 IDs for future research.
-Due to storage and ethical constraints, the download link only provides textures with a resolution of 512. Please contact us with your identification details if you need higher-resolution data.
+
+  Due to storage and ethical constraints, the download link only provides textures with a resolution of 512. Please contact us with your identification details if you need higher-resolution data.
 ---
 
 ## Install
