@@ -30,18 +30,12 @@ def truncate_latent_and_audio(audio, motion_latent, tex_latent, n_motions, audio
         batch_size = audio.shape[0]
         audio_trunc = audio.clone()
         if pad_mode == 'replicate':
-            # batch_indices = torch.arange(batch_size).unsqueeze(1)  # 计算一次
-            # end_idx_expanded = end_idx.unsqueeze(1)  # 扩展维度以便广播
-            # audio_trunc[batch_indices, end_idx_expanded:] = audio_trunc[batch_indices, end_idx_expanded - 1]
             for i in range(batch_size):
                 # unused_sum += audio.sum()
                 # unused_sum += audio_trunc[i, end_idx[i]:].sum()
                 audio_trunc[i, end_idx[i]:] = audio_trunc[i, end_idx[i] - 1]
         elif pad_mode == 'zero':
-            # batch_indices = torch.arange(batch_size).unsqueeze(1)  # 计算一次
-            # end_idx_expanded = end_idx.unsqueeze(1)  # 扩展维度以便广播
-            # print(batch_indices.shape, end_idx_expanded.shape, audio_trunc.shape)
-            # audio_trunc[batch_indices, end_idx_expanded:] = 0
+
             for i in range(batch_size):
                 # unused_sum += audio.sum()
                 # unused_sum += audio_trunc[i, end_idx[i]:].sum()
@@ -57,20 +51,14 @@ def truncate_latent_and_audio(audio, motion_latent, tex_latent, n_motions, audio
         motion_latent_trunc = motion_latent.clone()
         tex_latent_trunc = tex_latent.clone()
         if pad_mode == 'replicate':
-            # batch_indices = torch.arange(batch_size).unsqueeze(1)  # 计算一次
-            # end_idx_expanded = end_idx.unsqueeze(1)  # 扩展维度以便广播
-            # motion_latent_trunc[batch_indices, end_idx_expanded:] = motion_latent_trunc[batch_indices, end_idx_expanded - 1]
-            # tex_latent_trunc[batch_indices, end_idx_expanded:] = tex_latent_trunc[batch_indices, end_idx_expanded - 1]
+        
             for i in range(batch_size):
                 # unused_sum += motion_latent[i, end_idx[i]:].sum() + tex_latent[i, end_idx[i]:].sum()
                 motion_latent_trunc[i, end_idx[i]:] = motion_latent_trunc[i, end_idx[i] - 1]
                 tex_latent_trunc[i, end_idx[i]:] = tex_latent_trunc[i, end_idx[i] - 1]
                 
         elif pad_mode == 'zero':
-            # batch_indices = torch.arange(batch_size).unsqueeze(1)  # 计算一次
-            # end_idx_expanded = end_idx.unsqueeze(1)  # 扩展维度以便广播
-            # motion_latent_trunc[batch_indices, end_idx_expanded:] = 0
-            # tex_latent_trunc[batch_indices, end_idx_expanded:] = 0
+           
             for i in range(batch_size):
                 #unused_sum += motion_latent[i, end_idx[i]:].sum() + tex_latent[i, end_idx[i]:].sum()
                 motion_latent_trunc[i, end_idx[i]:] = 0
@@ -216,16 +204,7 @@ class TexTalkerModel(BaseModel):
                     # use contextualized audio feature for the second clip
                     audio_in = self.net_g.module.extract_audio_feature(torch.cat([self.audio_pair[i - 1], audio_in], dim=1),
                                                            self.n_motions * 2)[:, -self.n_motions:]
-                #     unused_sum2i = audio_feat.sum() + audio_in.sum()
-                # else:
-                #     unused_sum2i = audio_feat.sum()
-                
-                # if self.use_context_audio_feat:
-                #     audio_in = audio_feat[:, i * self.n_motions : (i + 1) * self.n_motions]
-                # else:
-                #     audio_in = audio
-                # else:
-                #     audio_in = self.net_g.module.extract_audio_feature(audio_in)
+
             else:
                 if self.use_context_audio_feat:
                     audio_in = audio_feat[:, i * self.n_motions : (i + 1) * self.n_motions]
@@ -241,10 +220,7 @@ class TexTalkerModel(BaseModel):
                     indicator = torch.ones(self.b, self.n_motions, device=self.device)
             else:
                 indicator = None
-            #print(motion_latent_in.shape)
-            # Inference
-            # def forward(self, motion_feat, tex_feat, audio_or_feat, shape_map, tex_map, style_feat=None,
-            #    prev_motion_feat=None, prev_tex_feat=None, prev_audio_feat=None, time_step=None, indicator=None):
+        
             if i == 0:
                 noise, target, prev_motion_latent, prev_tex_latent, prev_audio_feat, unused_sum = self.net_g(
                     motion_latent_in, tex_latent_in, audio_in, self.shape_map, self.tex_map, style, indicator=indicator)
