@@ -12,23 +12,93 @@ Significant progress has been made for speech-driven 3D face animation, but most
 ---
 
 ## TexTalk4D Dataset
-Baidu Netdisk [Download](https://pan.baidu.com/s/1KebDvmbZpEe3CNMmlXgItQ) Extraction Code: fivu
+Google Drive: Coming Soon
 
-- TexTalkData.zip: Containing 72 seen IDs. The latter half of the speech from ID063 to ID072 is not included in the training set and is used for calculating quantitative metrics, i.e., TexTalk4D-Test-A in the paper.
+- TexTalkData.zip: Containing 70 seen IDs. The latter half of the speech from ID063 to ID072 is not included in the training set and is used for calculating quantitative metrics, i.e., TexTalk4D-Test-A in the paper.
 - TexTalkTest.zip: Containing 18 unseen IDs used for qualitative evaluation.
-- TexTalkDataV2.zip: Containing 8 unused IDs, exhibiting significant forehead wrinkles. The original dataset lacks forehead wrinkles, so we additionally add 8 IDs for future research.
+- TexTalkDataV2.zip: Containing 8 unused IDs. The original dataset lacks subjects with forehead wrinkles. Therefore, we have added 8 IDs who exhibit this feature to support future research."
 
   Due to storage and ethical constraints, the download link only provides textures with a resolution of 512. Please contact us with your identification details if you need higher-resolution data.
+
+  Some subjects requested to withdraw their data, resulting in a discrepancy between the currently available dataset and the one described in the publication.
 ---
 
 ## Install
-TODO
+
+```bash
+conda create -n textalker python=3.9 -y
+conda activate textalker
+
+pip install -r requirements.txt
+# basicsr
+python basicsr/setup.py develop
+# face3d
+git clone https://github.com/YadiraF/face3d
+cd face3d/mesh/cython
+python setup.py build_ext -i 
+```
+
+## Train
+### Preprocess your dataset
+Note: The organization of the dataset directory should be the same as the data we provide.
+
+1. Generate the offset map of the mesh sequence. 
+```bash
+python ./scripts/gen_obj_diff.py --input_dir "path to your training set root"
+```
+2. Train the motion vae.
+Modify the options/VQGAN_Motion.yml, set dataroot_gt: "/data/your_usrname/TexTalkData".
+```bash
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+./scripts/dist_train.sh 4 options/VQGAN_Motion.yml
+```
+3. Train the texture vae.
+Modify the options/VQGAN_Texture.yml, set dataroot_gt: "/data/your_usrname/TexTalkData".
+```bash
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+./scripts/dist_train.sh 4 options/VQGAN_Texture.yml
+```
+4. Generate motion latent features using the motion vae.
+```bash
+python ./scripts/gen_latent_gt_mesh.py --input_dir "path to your training set root" \ 
+--model_path "path to your motion vae checkpoint.pth"
+```
+5. Generate texture latent features using the texture vae.
+```bash
+python ./scripts/gen_latent_gt_tex.py --input_dir "path to your training set root" \ 
+--model_path "path to your texture vae checkpoint.pth"
+```
+6. Generate the pivot features.
+```bash
+python ./scripts/gen_latent_ave.py --input_dir "path to your training set root"
+```
+7. Train the textalker model.
+```bash
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+./scripts/dist_train.sh 4 options/TexTalker.yml 
+```
+
+## Inference
+### Quick start
+1. Download the checkpoints and put them to ./checkpoints.
+Google Drive: Coming Soon
+2. Run the inference.
+Require the template obj, texture, motion pivot and texture pivot.
+```bash
+python inference.py --tex_decoder_path "checkpoints/tex_vae.pth" \
+--motion_decoder_path "checkpoints/motion_vae.pth" \
+--model_path "checkpoints/textalker.pth" \
+--input "example/test_id" \
+--audio_path "example/Records/enhanced_vocal.wav" \
+--output "results"
+```
+You can use your own template mesh and generate the pivots by Steps 4-6 of the training stage.
+
 
 ## Acknowledgement
 This work is built on awesome research works and open-source projects, thanks a lot to all the authors.
 - [DiffPoseTalk](https://github.com/DiffPoseTalk/DiffPoseTalk)
 - [BasicSR](https://github.com/XPixelGroup/BasicSR)
-- [CodeFormer](https://github.com/sczhou/CodeFormer)
 - [Face3D](https://github.com/yfeng95/face3d)
 
 ---
