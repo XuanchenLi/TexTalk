@@ -12,7 +12,7 @@ Significant progress has been made for speech-driven 3D face animation, but most
 ---
 
 ## TexTalk4D Dataset
-Google Drive: Coming Soon
+Google Drive: [Download](https://drive.google.com/drive/folders/1UDc3y4_9ywj6EHPWPZpJ2U3wRizJFeg5?usp=sharing)
 
 - TexTalkData.zip: Containing 70 seen IDs. The latter half of the speech from ID063 to ID072 is not included in the training set and is used for calculating quantitative metrics, i.e., TexTalk4D-Test-A in the paper.
 - TexTalkTest.zip: Containing 18 unseen IDs used for qualitative evaluation.
@@ -81,7 +81,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 \
 ## Inference
 ### Quick start
 1. Download the checkpoints and put them to ./checkpoints.
-Google Drive: Coming Soon
+Google Drive: [Download](https://drive.google.com/drive/folders/1UDc3y4_9ywj6EHPWPZpJ2U3wRizJFeg5?usp=sharing)
 2. Run the inference.
 Require the template obj, texture, motion pivot and texture pivot.
 ```bash
