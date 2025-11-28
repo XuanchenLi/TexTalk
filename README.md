@@ -19,6 +19,7 @@ Google Drive: [Download](https://drive.google.com/drive/folders/1UDc3y4_9ywj6EHP
 - TexTalkDataV2.zip: Containing 8 unused IDs. The original dataset lacks subjects with forehead wrinkles. Therefore, we have added 8 IDs who exhibit this feature to support future research."
 
   Due to storage and ethical constraints, the download link only provides textures with a resolution of 512. Please contact us with your identification details if you need higher-resolution data.
+  We release the neutral 8K texture in /TexTalkDataset/ID001/Models/000001/face.png, for example. You can calculate the wrinkle map from the 512 resolution maps, resize it to a higher resolution, and combine it with the high-resolution neutral texture to approximate the high-resolution dynamic textures.
 
   Some subjects requested to withdraw their data, resulting in a discrepancy between the currently available dataset and the one described in the publication.
 ---
