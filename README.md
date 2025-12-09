@@ -29,8 +29,13 @@ Google Drive: [Download](https://drive.google.com/drive/folders/1UDc3y4_9ywj6EHP
 ```bash
 conda create -n textalker python=3.9 -y
 conda activate textalker
+# pytorch
+pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116
 
 pip install -r requirements.txt
+# pytorch3d
+pip install fvcore iopath
+pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/py39_cu116_pyt1131/download.html
 # basicsr
 python basicsr/setup.py develop
 # face3d
