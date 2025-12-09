@@ -20,7 +20,6 @@ pillow==10.4.0
 protobuf==3.20.3
 pyparsing==3.1.4
 pytorch-fid==0.3.0
-pytorch3d
 PyWavefront==1.3.3
 PyYAML==6.0.2
 requests==2.32.3
