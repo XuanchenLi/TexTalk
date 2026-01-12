@@ -12,13 +12,14 @@ Significant progress has been made for speech-driven 3D face animation, but most
 ---
 
 ## TexTalk4D Dataset
-Google Drive: Coming Soon
+Google Drive: [Download](https://drive.google.com/drive/folders/1UDc3y4_9ywj6EHPWPZpJ2U3wRizJFeg5?usp=sharing)
 
 - TexTalkData.zip: Containing 70 seen IDs. The latter half of the speech from ID063 to ID072 is not included in the training set and is used for calculating quantitative metrics, i.e., TexTalk4D-Test-A in the paper.
 - TexTalkTest.zip: Containing 18 unseen IDs used for qualitative evaluation.
 - TexTalkDataV2.zip: Containing 8 unused IDs. The original dataset lacks subjects with forehead wrinkles. Therefore, we have added 8 IDs who exhibit this feature to support future research."
 
   Due to storage and ethical constraints, the download link only provides textures with a resolution of 512. Please contact us with your identification details if you need higher-resolution data.
+  We release the neutral 8K texture in /TexTalkDataset/ID001/Models/000001/face.png, for example. You can calculate the wrinkle map from the 512 resolution maps, resize it to a higher resolution, and combine it with the high-resolution neutral texture to approximate the high-resolution dynamic textures.
 
   Some subjects requested to withdraw their data, resulting in a discrepancy between the currently available dataset and the one described in the publication.
 ---
@@ -28,8 +29,13 @@ Google Drive: Coming Soon
 ```bash
 conda create -n textalker python=3.9 -y
 conda activate textalker
+# pytorch
+pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116
 
 pip install -r requirements.txt
+# pytorch3d
+pip install fvcore iopath
+pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/py39_cu116_pyt1131/download.html
 # basicsr
 python basicsr/setup.py develop
 # face3d
@@ -81,7 +87,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 \
 ## Inference
 ### Quick start
 1. Download the checkpoints and put them to ./checkpoints.
-Google Drive: Coming Soon
+Google Drive: [Download](https://drive.google.com/drive/folders/1UDc3y4_9ywj6EHPWPZpJ2U3wRizJFeg5?usp=sharing)
 2. Run the inference.
 Require the template obj, texture, motion pivot and texture pivot.
 ```bash
