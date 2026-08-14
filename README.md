@@ -2,6 +2,20 @@
 
 <a href='https://openaccess.thecvf.com/content/CVPR2025/papers/Li_Towards_High-fidelity_3D_Talking_Avatar_with_Personalized_Dynamic_Texture_CVPR_2025_paper.pdf'><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2310.00434-red?link=https%3A%2F%2Farxiv.org%2Fabs%2F2310.00434"></a>
 <a href='https://xuanchenli.github.io/TexTalk/'><img alt="Project Page" src="https://img.shields.io/badge/Project%20Page-blue?logo=github&labelColor=black&link=https%3A%2F%2Fraineggplant.github.io%2FDiffPoseTalk"></a>
+<a href='./LICENSE'><img alt="License" src="https://img.shields.io/badge/License-NonCommercial-lightgrey"></a>
+
+---
+## License
+
+This project is **source-available for non-commercial research only**. Commercial use is not allowed without a separate license.
+
+| Component | License |
+| --- | --- |
+| Original source code | [PolyForm Noncommercial 1.0.0](./LICENSE-CODE) |
+| Model weights, TexTalk4D dataset, and media assets | [CC BY-NC 4.0](./LICENSE-WEIGHTS) |
+| Third-party dependencies (BasicSR, Face3D, etc.) | Their original licenses |
+
+See [LICENSE](./LICENSE) for the full summary. For commercial licensing, contact: `2468691031@qq.com`.
 
 ---
 ## Abstract
