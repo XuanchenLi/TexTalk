@@ -15,7 +15,7 @@ This project is **source-available for non-commercial research only**. Commercia
 | Model weights, TexTalk4D dataset, and media assets | [CC BY-NC 4.0](./LICENSE-WEIGHTS) |
 | Third-party dependencies (BasicSR, Face3D, etc.) | Their original licenses |
 
-See [LICENSE](./LICENSE) for the full summary. For commercial licensing, contact: `2468691031@qq.com`.
+See [LICENSE](./LICENSE) for the full summary. For commercial licensing, contact: `lixc6486@sjtu.edu.cn`.
 
 ---
 ## Abstract
