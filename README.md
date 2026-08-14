@@ -7,7 +7,9 @@
 ---
 ## License
 
-This project is **source-available for non-commercial research only**. Commercial use is not allowed without a separate license.
+This project is **source-available for non-commercial research only**. It is **not** public domain and **not** free for unrestricted use. Commercial use is prohibited without a separate written license.
+
+These terms apply to **all project releases**, whether files are in this repository or obtained from **external download links** (e.g. Google Drive, project page mirrors). A download without an embedded license file is still covered by the licenses below.
 
 | Component | License |
 | --- | --- |
@@ -27,6 +29,8 @@ Significant progress has been made for speech-driven 3D face animation, but most
 
 ## TexTalk4D Dataset
 Google Drive: [Download](https://drive.google.com/drive/folders/1UDc3y4_9ywj6EHPWPZpJ2U3wRizJFeg5?usp=sharing)
+
+**License:** TexTalk4D and all related dataset releases are under [CC BY-NC 4.0](./LICENSE-WEIGHTS) (non-commercial only), including copies obtained from external links.
 
 - TexTalkData.zip: Containing 70 seen IDs. The latter half of the speech from ID063 to ID072 is not included in the training set and is used for calculating quantitative metrics, i.e., TexTalk4D-Test-A in the paper.
 - TexTalkTest.zip: Containing 18 unseen IDs used for qualitative evaluation.
@@ -102,6 +106,8 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 \
 ### Quick start
 1. Download the checkpoints and put them to ./checkpoints.
 Google Drive: [Download](https://drive.google.com/drive/folders/1UDc3y4_9ywj6EHPWPZpJ2U3wRizJFeg5?usp=sharing)
+
+   Released checkpoints / weights are under [CC BY-NC 4.0](./LICENSE-WEIGHTS) (non-commercial only), including downloads from external links.
 2. Run the inference.
 Require the template obj, texture, motion pivot and texture pivot.
 ```bash

@@ -2,9 +2,15 @@ TexTalk / TexTalker License
 
 Copyright (c) 2025 Xuanchen Li and TexTalker authors
 
-This repository uses a split licensing scheme. Commercial use of the
-code, model weights, datasets, and assets is not permitted without a
-separate commercial license from the copyright holders.
+This repository uses a split licensing scheme. All original materials
+released as part of the TexTalk / TexTalker project — including source
+code, model weights, datasets, and media assets — are copyrighted works.
+They are NOT public domain, and they are NOT free for unrestricted use.
+
+Unless a separate commercial license is granted in writing by the
+copyright holders, use is limited to non-commercial purposes under the
+terms below. Obtaining files via GitHub, Google Drive, project pages,
+mirrors, or any other distribution channel does not change these terms.
 
 --------------------------------------------------------------------------------
 1. Source Code (our original code)
@@ -33,12 +39,21 @@ See LICENSE-WEIGHTS for the full terms.
 
   https://creativecommons.org/licenses/by-nc/4.0/
 
-This covers, without limitation:
+This applies whether the materials are included in this repository or
+distributed via external download links (including Google Drive, cloud
+storage, project pages, or any other host). Absence of a license file
+inside a download archive does not mean the materials are unlicensed.
 
-  - pretrained checkpoints and model weights (e.g. checkpoints/)
-  - TexTalk4D dataset releases and derived annotations
+Covered materials include, without limitation:
+
+  - pretrained checkpoints and model weights (including any release
+    under names such as textalker / motion_vae / tex_vae, whether placed
+    under checkpoints/ or downloaded separately)
+  - TexTalk4D dataset releases and derived annotations (including
+    TexTalkData, TexTalkTest, TexTalkDataV2, and subsequent releases)
   - example meshes, textures, audio, figures, and other media assets
-    (e.g. assets/, example/, figs/)
+    (e.g. assets/, example/, figs/, and equivalent files distributed
+    outside this repository)
 
 --------------------------------------------------------------------------------
 3. Third-Party Code
